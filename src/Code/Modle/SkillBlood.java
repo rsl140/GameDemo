@@ -7,7 +7,7 @@ public class SkillBlood {
 	private String skill;
 	private int blood;
 	
-	SkillBlood(){}
+	public SkillBlood(){}
 	
 	SkillBlood(String skill,int blood){
 		this.skill=skill;
