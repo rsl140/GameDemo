@@ -17,7 +17,7 @@ public class RandomRole extends Exception {
 
 	void RandomCM() throws Exception {
 
-		File str = new File("C:\\Users\\lenovo\\Desktop\\人物数据库\\海贼\\海贼.txt");
+		File str = new File(File.separator+"Users"+File.separator+"lenovo"+File.separator+"Desktop"+File.separator+"人物数据库"+File.separator+"海贼"+File.separator+"海贼.txt");
 		oos=new ObjectOutputStream(new FileOutputStream(str));
 		String ck=oos.toString();
 		String[] ck1 =  ck.split("\n");
