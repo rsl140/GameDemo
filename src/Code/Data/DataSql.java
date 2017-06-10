@@ -8,41 +8,41 @@ import Code.Modle.NameId;
 import Code.Modle.OnePiecePerson;
 
 public class DataSql {
-		/**
-		 * æ•°æ®å­˜å‚¨ç±»==SQL
-		 * */
-		//ç°æœ‰ç”¨æˆ·æ•°æ®
+	/**
+	 * Êı¾İ´æ´¢Àà==SQL
+	 * */
+	//ÏÖÓĞÓÃ»§Êı¾İ
 	protected List<NameId> id = new ArrayList<NameId>();
-		
-		//è®°å½•å½“å‰ç™»å½•è´¦å·
-		protected NameId nowId = new NameId();
-		//è§’è‰²è®°å½•
-		protected List<OnePiecePerson> role = new ArrayList<OnePiecePerson>();
-		/**
-		 * åˆå§‹åŒ–ç°æœ‰ç”¨æˆ·
-		 * */
-		protected void nameIdInIt() {
-			role.add(new OnePiecePerson("è’™å¥‡Â·DÂ·è·¯é£", 100, "ç”·", "è‰å¸½æµ·è´¼å›¢", "èˆ¹é•¿", "æ©¡èƒ¶æœå®"));
-			role.add(new OnePiecePerson("ç½—ç½—è¯ºäºšÂ·ç´¢éš†", 100, "ç”·", "è‰å¸½æµ·è´¼å›¢", "èˆ¹å‘˜", "ä¸‰åˆ€æµå‰‘å£«"));
-			id.add(new NameId("å¼ è‡ªå¼º", role));
+	
+	//¼ÇÂ¼µ±Ç°µÇÂ¼ÕËºÅ
+	protected NameId nowId = new NameId();
+	//½ÇÉ«¼ÇÂ¼
+	protected List<OnePiecePerson> role = new ArrayList<OnePiecePerson>();
+	/**
+	 * ³õÊ¼»¯ÏÖÓĞÓÃ»§
+	 * */
+	protected void nameIdInIt() {
+		role.add(new OnePiecePerson("ÃÉÆæ¡¤D¡¤Â··É", 100, "ÄĞ", "²İÃ±º£ÔôÍÅ", "´¬³¤", "Ïğ½º¹ûÊµ"));
+		role.add(new OnePiecePerson("ÂŞÂŞÅµÑÇ¡¤Ë÷Â¡", 100, "ÄĞ", "²İÃ±º£ÔôÍÅ", "´¬Ô±", "Èıµ¶Á÷½£Ê¿"));
+		id.add(new NameId("ÕÅ×ÔÇ¿", role));
+	}
+	/**
+	 * ³õÊ¼»¯ÏÖÓĞÕóÓª
+	 * */
+	protected List<Camp> campData = new ArrayList<Camp>();
+	
+	protected void campDataInIt(){
+		campData.add(new Camp("º£Ôô"));
+		campData.add(new Camp("ËÀÉñ"));
+		campData.add(new Camp("»ğÓ°"));
+	}
+	/**
+	 * ´òÓ¡ÏÖÓĞÕóÓª
+	 * */
+	protected void campDataPrint(){
+		for (int i = 0; i < campData.size(); i++) {
+			System.out.print((i+1)+"."+campData.get(i).getCamp()+"\t");
 		}
-		/**
-		 * åˆå§‹åŒ–ç°æœ‰é˜µè¥
-		 * */
-		protected List<Camp> campData = new ArrayList<Camp>();
-		
-		protected void campDataInIt(){
-			campData.add(new Camp("æµ·è´¼"));
-			campData.add(new Camp("æ­»ç¥"));
-			campData.add(new Camp("ç«å½±"));
-		}
-		/**
-		 * æ‰“å°ç°æœ‰é˜µè¥
-		 * */
-		protected void campDataPrint(){
-			for (int i = 0; i < campData.size(); i++) {
-				System.out.print((i+1)+"."+campData.get(i).getCamp()+"\t");
-			}
-			System.out.println();
-		}
+		System.out.println();
+	}
 }

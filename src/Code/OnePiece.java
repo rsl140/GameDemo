@@ -6,7 +6,7 @@ package Code;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import Code.Meun;
+
 import Code.Modle.*;
 
 public class OnePiece extends OnePiecePerson {
@@ -17,40 +17,41 @@ public class OnePiece extends OnePiecePerson {
 
 	List<OnePiecePerson> caoMao = new ArrayList<OnePiecePerson>();
 
-
+	public OnePiece() {
+	}
 
 	public OnePiece(String name, int blood, String sex, String camp, String job, String skill) {
 		super(name, blood, sex, camp, job, skill);
 	}
 
 	/*
-	 * å§“åèµ‹å€¼
+	 * ĞÕÃû¸³Öµ
 	 */
 	public void showInfo() {
 		/*
-		 * ç»™äºˆæ•°ç»„åˆå§‹
+		 * ¸øÓèÊı×é³õÊ¼
 		 */
-		caoMao.add(new OnePiecePerson("è’™å¥‡Â·DÂ·è·¯é£", 100, "ç”·", "è‰å¸½æµ·è´¼å›¢", "èˆ¹é•¿", "æ©¡èƒ¶æœå®"));
-		caoMao.add(new OnePiecePerson("ç½—ç½—è¯ºäºšÂ·ç´¢éš†", 100, "ç”·", "è‰å¸½æµ·è´¼å›¢", "èˆ¹å‘˜", "ä¸‰åˆ€æµå‰‘å£«	"));
-		caoMao.add(new OnePiecePerson("å¨œç¾", 100, "å¥³", "è‰å¸½æµ·è´¼å›¢", "èˆªæµ·å£«", "å¤©å€™æ£’"));
-		caoMao.add(new OnePiecePerson("å±±æ²»", 100, "ç”·", "è‰å¸½æµ·è´¼å›¢", "èˆ¹å¨", "èµ¤è¶³"));
-		caoMao.add(new OnePiecePerson("ä¹Œç´¢æ™®", 100, "ç”·", "è‰å¸½æµ·è´¼å›¢", "ç‹™å‡»æ‰‹", "å¼¹å¼“"));
-		caoMao.add(new OnePiecePerson("æ‰˜å°¼æ‰˜å°¼Â·ä¹”å·´", 100, "é©¯é¹¿", "è‰å¸½æµ·è´¼å›¢", "èˆ¹åŒ»", "äººäººæœå®"));
-		caoMao.add(new OnePiecePerson("å¦®å¯Â·ç½—å®¾", 100, "å¥³", "è‰å¸½æµ·è´¼å›¢", "å†å²å­¦å®¶", "æœå®"));
-		caoMao.add(new OnePiecePerson("å¼—å…°å¥‡", 100, "ç”·", "è‰å¸½æµ·è´¼å›¢", "èˆ¹åŒ ", "äººé€ äºº"));
-		caoMao.add(new OnePiecePerson("å¸ƒé²å…‹", 100, "éª·é«…", "è‰å¸½æµ·è´¼å›¢", "éŸ³ä¹å®¶", "é»„æ³‰æœå®"));
+		caoMao.add(new OnePiecePerson("ÃÉÆæ¡¤D¡¤Â··É", 100, "ÄĞ", "²İÃ±º£ÔôÍÅ", "´¬³¤", "Ïğ½º¹ûÊµ"));
+		caoMao.add(new OnePiecePerson("ÂŞÂŞÅµÑÇ¡¤Ë÷Â¡", 100, "ÄĞ", "²İÃ±º£ÔôÍÅ", "´¬Ô±", "Èıµ¶Á÷½£Ê¿	"));
+		caoMao.add(new OnePiecePerson("ÄÈÃÀ", 100, "Å®", "²İÃ±º£ÔôÍÅ", "º½º£Ê¿", "Ììºò°ô"));
+		caoMao.add(new OnePiecePerson("É½ÖÎ", 100, "ÄĞ", "²İÃ±º£ÔôÍÅ", "´¬³ø", "³à×ã"));
+		caoMao.add(new OnePiecePerson("ÎÚË÷ÆÕ", 100, "ÄĞ", "²İÃ±º£ÔôÍÅ", "¾Ñ»÷ÊÖ", "µ¯¹­"));
+		caoMao.add(new OnePiecePerson("ÍĞÄáÍĞÄá¡¤ÇÇ°Í", 100, "Ñ±Â¹", "²İÃ±º£ÔôÍÅ", "´¬Ò½", "ÈËÈË¹ûÊµ"));
+		caoMao.add(new OnePiecePerson("Äİ¿É¡¤ÂŞ±ö", 100, "Å®", "²İÃ±º£ÔôÍÅ", "ÀúÊ·Ñ§¼Ò", "¹ûÊµ"));
+		caoMao.add(new OnePiecePerson("¸¥À¼Ææ", 100, "ÄĞ", "²İÃ±º£ÔôÍÅ", "´¬½³", "ÈËÔìÈË"));
+		caoMao.add(new OnePiecePerson("²¼Â³¿Ë", 100, "÷¼÷Ã", "²İÃ±º£ÔôÍÅ", "ÒôÀÖ¼Ò", "»ÆÈª¹ûÊµ"));
 		/*
-		 * èœå•å¾ªç¯
+		 * ²Ëµ¥Ñ­»·
 		 */
 		do {
-			System.out.println("**********è‰å¸½æµ·è´¼å›¢**********");
-			System.out.println("è‰å¸½æµ·è´¼å›¢ç›®å‰å…±" + caoMao.size() + "äºº");
-			System.out.println("***********è¯¦ç»†æ•°æ®***********");
+			System.out.println("**********²İÃ±º£ÔôÍÅ**********");
+			System.out.println("²İÃ±º£ÔôÍÅÄ¿Ç°¹²" + caoMao.size() + "ÈË");
+			System.out.println("***********ÏêÏ¸Êı¾İ***********");
 			show(caoMao);
 
 			addcaoMao();
-			System.out.println("æ˜¯å¦ç»§ç»­ï¼š");
-			System.out.println("(1.ç»§ç»­/2.é€€å‡º)");
+			System.out.println("ÊÇ·ñ¼ÌĞø£º");
+			System.out.println("(1.¼ÌĞø/2.ÍË³ö)");
 			int choose = input.nextInt();
 			if (choose == 1) {
 				ck = true;
@@ -58,7 +59,7 @@ public class OnePiece extends OnePiecePerson {
 				ck = false;
 				break;
 			} else {
-				System.out.println("é€‰æ‹©é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥");
+				System.out.println("Ñ¡Ôñ´íÎó£¡ÇëÖØĞÂÊäÈë");
 				ck = true;
 			}
 		} while (ck);
@@ -67,36 +68,48 @@ public class OnePiece extends OnePiecePerson {
 	}
 
 	/*
-	 * æ˜¾ç¤ºå¾ªç¯
+	 * ÏÔÊ¾Ñ­»·
 	 */
 	public static void show(List<OnePiecePerson> caoMao) {
 		for (OnePiecePerson caoMao1 : caoMao) {
-			System.out.println("é˜µè¥ï¼š" + caoMao1.getCamp());
-			System.out.println("\tèŒè´£ï¼š" + caoMao1.getJob());
-			System.out.println("\t\tå§“åï¼š" + caoMao1.getName());
-			System.out.println("\t\tç”Ÿå‘½å€¼ï¼š" + caoMao1.getBlood());
-			System.out.println("\t\tæ€§åˆ«ï¼š" + caoMao1.getSex());
-			System.out.println("\t\tèƒ½åŠ›ï¼š" + caoMao1.getSkill());
+			System.out.println("ÕóÓª£º" + caoMao1.getCamp());
+			System.out.println("\tÖ°Ôğ£º" + caoMao1.getJob());
+			System.out.println("\t\tĞÕÃû£º" + caoMao1.getName());
+			System.out.println("\t\tÉúÃüÖµ£º" + caoMao1.getBlood());
+			System.out.println("\t\tĞÔ±ğ£º" + caoMao1.getSex());
+			System.out.println("\t\tÄÜÁ¦£º" + caoMao1.getSkill());
 
 		}
 	}
 
 	/*
-	 * è¾“å…¥è°ƒç”¨
+	 * ÊäÈëµ÷ÓÃ
 	 */
 	void addcaoMao() {
-		System.out.println("è¯·è¾“å…¥æ·»åŠ æˆå‘˜ï¼š");
-		System.out.println("é˜µè¥ï¼š");
+		System.out.println("ÇëÊäÈëÌí¼Ó³ÉÔ±£º");
+		System.out.println("ÕóÓª£º");
 		String camp = input.next();
-		System.out.println("èŒè´£ï¼š");
+		System.out.println("Ö°Ôğ£º");
 		String job = input.next();
-		System.out.println("å§“åï¼š");
+		System.out.println("ĞÕÃû£º");
 		String name = input.next();
-		System.out.println("æ€§åˆ«ï¼š");
+		System.out.println("ĞÔ±ğ£º");
 		String sex = input.next();
-		System.out.println("èƒ½åŠ›ï¼š");
+		System.out.println("ÄÜÁ¦£º");
 		String skill = input.next();
 		OnePiecePerson a = new OnePiecePerson(name, 100, sex, camp, job, skill);
 		caoMao.add(a);
+	}
+
+	void ranDom(List<OnePiecePerson> caoMao) {
+		//for (int i = 0; i < caoMao.size(); i++) {
+		int i=(int) (Math.random()*8);
+			System.out.println("ÕóÓª£º" + ((caoMao.get(i))).getCamp());
+			System.out.println("\tÖ°Ôğ£º" + ((caoMao.get(i))).getJob());
+			System.out.println("\t\tĞÕÃû£º" + ((caoMao.get(i))).getName());
+			System.out.println("\t\tÉúÃüÖµ£º" + ((caoMao.get(i))).getBlood());
+			System.out.println("\t\tĞÔ±ğ£º" + ((caoMao.get(i))).getSex());
+			System.out.println("\t\tÄÜÁ¦£º" + ((caoMao.get(i))).getSkill());
+		//}
 	}
 }

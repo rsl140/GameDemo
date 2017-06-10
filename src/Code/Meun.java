@@ -3,53 +3,55 @@ package Code;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 import Code.Data.*;
 import Code.Modle.*;
 
 public class Meun extends DataSql{
 
-	public Scanner input = new Scanner(System.in); 
-	
+	public Scanner input = new Scanner(System.in);
+
 	/**
-	 * å¯åŠ¨æ•°æ®åº“
-	 * */
-	public Meun(){
+	 * Æô¶¯Êı¾İ¿â
+	 */
+	public Meun() {
 		nameIdInIt();
-		campDataInIt();
+		this.campDataInIt();
 	}
+
 	/*
-	 * ç™»å½•ç•Œé¢
+	 * µÇÂ¼½çÃæ
 	 */
 	public void hasRole() {
-		System.out.println("æ¬¢è¿æ¥åˆ°åŠ¨æ¼«å¤§ä¹±æ–—");
-		System.out.println("æ‚¨æ˜¯å¤§ç¥ï¼ˆ1ï¼‰è¿˜æ˜¯èœé¸Ÿï¼ˆ2ï¼‰ï¼š");
-		//try {
-			int choose = input.nextInt();
-			switch (choose) {
-			case 1:
-				login();
-				break;
-			case 2:
-				AddNew();
-				break;
-			default:
-				System.out.println("è¯·é€‰æ‹©ï¼ˆ1/2ï¼‰ï¼š");
-				hasRole();
-//			}
-//		} catch (InputMismatchException ex) {
-//			System.out.println("è¾“å…¥é”™è¯¯ï¼");
-//			hasRole();
+		System.out.println("»¶Ó­À´µ½¶¯Âş´óÂÒ¶·");
+		System.out.println("ÄúÊÇ´óÉñ£¨1£©»¹ÊÇ²ËÄñ£¨2£©£º");
+		// try {
+		int choose = input.nextInt();
+		switch (choose) {
+		case 1:
+			login();
+			break;
+		case 2:
+			AddNew();
+			break;
+		default:
+			System.out.println("ÇëÑ¡Ôñ£¨1/2£©£º");
+			hasRole();
+			// }
+			// } catch (InputMismatchException ex) {
+			// System.out.println("ÊäÈë´íÎó£¡");
+			// hasRole();
 		}
 	}
 
 	/*
-	 * ä¸»ç•Œé¢
+	 * Ö÷½çÃæ
 	 */
 	void mainMeun() {
-		System.out.println("1.å¼€å§‹æ¸¸æˆ");
-		System.out.println("2.è§’è‰²ç®¡ç†");
-		System.out.println("3.ç®¡ç†å‘˜ç™»å½•");
-		System.out.println("0.é€€å‡º");
+		System.out.println("1.¿ªÊ¼ÓÎÏ·");
+		System.out.println("2.½ÇÉ«¹ÜÀí");
+		System.out.println("3.¹ÜÀíÔ±µÇÂ¼");
+		System.out.println("0.ÍË³ö");
 		int choose = input.nextInt();
 		switch (choose) {
 		case 1:
@@ -59,133 +61,149 @@ public class Meun extends DataSql{
 			roleMnue();
 			break;
 		case 3:
-			System.out.println("å¼€å‘ä¸­..");
+			System.out.println("¿ª·¢ÖĞ..");
 			mainMeun();
 			break;
 		default:
-			System.out.println("è¯·é€‰æ‹©ï¼ˆ1/2ï¼‰ï¼š");
+			System.out.println("ÇëÑ¡Ôñ£¨1/2£©£º");
 			mainMeun();
 		}
 	}
 
-	
 	/**
-	 * è§’è‰²ç®¡ç†é¡µé¢
-	 * */
-	void roleMnue(){
-		System.out.println("1.æŸ¥çœ‹");
-		System.out.println("2.æŠ½ç‰Œ");
-		System.out.println("3.åˆ†è§£");
-		System.out.println("0.è¿”å›ä¸Šä¸€çº§");
+	 * ½ÇÉ«¹ÜÀíÒ³Ãæ
+	 */
+	void roleMnue() {
+		System.out.println("1.²é¿´");
+		System.out.println("2.³éÅÆ");
+		System.out.println("3.·Ö½â");
+		System.out.println("0.·µ»ØÉÏÒ»¼¶");
 		int choose = input.nextInt();
+
 		switch (choose) {
 		case 1:
 			for (OnePiecePerson roles : nowId.getRole()) {
-				System.out.println("é˜µè¥ï¼š" + roles.getCamp());
-				System.out.println("\tèŒè´£ï¼š" + roles.getJob());
-				System.out.println("\t\tå§“åï¼š" + roles.getName());
-				System.out.println("\t\tç”Ÿå‘½å€¼ï¼š" + roles.getBlood());
-				System.out.println("\t\tæ€§åˆ«ï¼š" + roles.getSex());
-				System.out.println("\t\tèƒ½åŠ›ï¼š" + roles.getSkill());
+				System.out.println("ÕóÓª£º" + roles.getCamp());
+				System.out.println("\tÖ°Ôğ£º" + roles.getJob());
+				System.out.println("\t\tĞÕÃû£º" + roles.getName());
+				System.out.println("\t\tÉúÃüÖµ£º" + roles.getBlood());
+				System.out.println("\t\tĞÔ±ğ£º" + roles.getSex());
+				System.out.println("\t\tÄÜÁ¦£º" + roles.getSkill());
 			}
 			roleMnue();
 			break;
 		case 2:
-//			System.out.println("å¼€å‘ä¸­..");
-//			roleMnue();
-			List<OnePiecePerson> addRole = new ArrayList<OnePiecePerson>();
-			addRole = nowId.getRole();
-			addRole.add(new OnePiecePerson("ç½—ç½—è¯ºäºšÂ·ç´¢éš†", 100, "ç”·", nowId.getCamp(), "èˆ¹å‘˜", "ä¸‰åˆ€æµå‰‘å£«"));
-			nowId.setRole(addRole);
-			roleMnue();
+			// System.out.println("¿ª·¢ÖĞ..");
+			// roleMnue();
+			boolean chen = false;
+			do {
+				System.out.println("ÊÇ·ñ¿ªÊ¼³éÅÆ£¿£¨Y/N£©");
+				String ch = input.next();
+				if ("y".equals(ch) || "Y".equals(ch)) {
+					List<OnePiecePerson> addRole = new ArrayList<OnePiecePerson>();
+					addRole = nowId.getRole();
+					int index = (int) (Math.random() * 8);
+					OnePiece one = new OnePiece();
+					one.ranDom(addRole);
+					 nowId.setRole(addRole);
+					chen = true;
+				} else {
+					roleMnue();
+				}
+			} while (chen);
+
 			break;
 		case 3:
-			System.out.println("å¼€å‘ä¸­..");
+			System.out.println("¿ª·¢ÖĞ..");
 			roleMnue();
 			break;
-			case 0:
-				mainMeun();
-				break;
+		case 0:
+			mainMeun();
+			break;
 		default:
-			System.out.println("è¯·é€‰æ‹©ï¼ˆ1/2/3/0ï¼‰ï¼š");
+			System.out.println("ÇëÑ¡Ôñ£¨1/2/3/0£©£º");
 			roleMnue();
 		}
 	}
+
 	/*
-	 * åˆ¤æ–­ç”¨æˆ·æ˜¯å¦æ‹¥æœ‰è§’è‰²
+	 * ÅĞ¶ÏÓÃ»§ÊÇ·ñÓµÓĞ½ÇÉ«
 	 */
 	void hasHave() {
 		if (role.size() == 0) {
 			AddNew();
 		}
 	}
-	
+
 	/**
-	 * è€ç©å®¶ç™»é™†
-	 * */
-	void login(){
-		System.out.println("å¼€å‘ä¸­..");
+	 * ÀÏÍæ¼ÒµÇÂ½
+	 */
+	void login() {
+		System.out.println("¿ª·¢ÖĞ..");
 		System.out.println();
 		hasRole();
 	}
+
 	/*
-	 * æ³¨å†Œ
+	 * ×¢²á
 	 */
 	void AddNew() {
-		System.out.println("å‘Šè¯‰æˆ‘ä½ å«ä»€ä¹ˆï¼Ÿ");
+		System.out.println("¸æËßÎÒÄã½ĞÊ²Ã´£¿");
 		String idNum = input.next();
 		for (int i = 0; i < id.size(); i++) {
 			if (idNum.equals(id.get(i).getId())) {
-				System.out.println("å·²æœ‰æ­¤è§’è‰²åï¼");
+				System.out.println("ÒÑÓĞ´Ë½ÇÉ«Ãû£¡");
 				AddNew();
 				break;
 			}
 		}
 		AddNewRoleInit(idNum);
-		System.out.println("åˆ›å»ºæˆåŠŸï¼");
+		System.out.println("´´½¨³É¹¦£¡");
 		mainMeun();
 	}
+
 	/*
-	 * æ³¨å†ŒæˆåŠŸé€‰æ‹©é˜µè¥å¹¶åˆå§‹åŒ–è§’è‰²
+	 * ×¢²á³É¹¦Ñ¡ÔñÕóÓª²¢³õÊ¼»¯½ÇÉ«
 	 */
 	void AddNewRoleInit(String name) {
 		NameId nameid = new NameId();
 		List<OnePiecePerson> nameRole = new ArrayList<OnePiecePerson>();
 		nameid.setId(name);
-		System.out.println("è¯·é€‰æ‹©é˜µè¥ï¼š");
-		
-		campDataPrint();
-		
+		System.out.println("ÇëÑ¡ÔñÕóÓª£º");
+
+		this.campDataPrint();
+
 		int choose = input.nextInt();
 		switch (choose) {
 		case 1:
-			nameid.setCamp(campData.get(choose-1).getCamp());
-			System.out.println("è·å¾—è§’è‰²â€œè·¯é£â€");
-			nameRole.add(new OnePiecePerson("è’™å¥‡Â·DÂ·è·¯é£", 100, "ç”·", nameid.getCamp(), "èˆ¹é•¿", "æ©¡èƒ¶æœå®"));
+			nameid.setCamp(this.campData.get(choose - 1).getCamp());
+			System.out.println("»ñµÃ½ÇÉ«¡°Â··É¡±");
+			nameRole.add(new OnePiecePerson("ÃÉÆæ¡¤D¡¤Â··É", 100, "ÄĞ", nameid.getCamp(), "´¬³¤", "Ïğ½º¹ûÊµ"));
 			break;
 		case 2:
-			nameid.setCamp(campData.get(choose-1).getCamp());
-			System.out.println("è·å¾—è§’è‰²â€œé»‘å´ä¸€æŠ¤â€");
-			nameRole.add(new OnePiecePerson("é»‘å´ä¸€æŠ¤", 100, "ç”·", nameid.getCamp(), "é…±æ²¹å…š", "åè§£"));
+			nameid.setCamp(this.campData.get(choose - 1).getCamp());
+			System.out.println("»ñµÃ½ÇÉ«¡°ºÚÆéÒ»»¤¡±");
+			nameRole.add(new OnePiecePerson("ºÚÆéÒ»»¤", 100, "ÄĞ", nameid.getCamp(), "½´ÓÍµ³", "…d½â"));
 			break;
 		case 3:
-			nameid.setCamp(campData.get(choose-1).getCamp());
-			System.out.println("è·å¾—è§’è‰²â€œæ¼©æ¶¡é¸£äººâ€");
-			nameRole.add(new OnePiecePerson("æ¼©æ¶¡é¸£äºº", 100, "ç”·", nameid.getCamp(), "è‰æ ¹", "éšåˆ†èº«ä¹‹æœ¯"));
+			nameid.setCamp(this.campData.get(choose - 1).getCamp());
+			System.out.println("»ñµÃ½ÇÉ«¡°äöÎĞÃùÈË¡±");
+			nameRole.add(new OnePiecePerson("äöÎĞÃùÈË", 100, "ÄĞ", nameid.getCamp(), "²İ¸ù", "Òş·ÖÉíÖ®Êõ"));
 			break;
 		default:
-			System.err.println("è¯·é‡æ–°é€‰æ‹©ï¼");
+			System.err.println("ÇëÖØĞÂÑ¡Ôñ£¡");
 			AddNewRoleInit(name);
 		}
 		nameid.setRole(nameRole);
 		id.add(nameid);
 		nowId = nameid;
 	}
+
 	/**
-	 * å¼€å§‹æ¸¸æˆ
-	 * */
-	void play(){
-		System.out.println("å¼€å‘ä¸­..");
+	 * ¿ªÊ¼ÓÎÏ·
+	 */
+	void play() {
+		System.out.println("¿ª·¢ÖĞ..");
 		System.out.println();
 		mainMeun();
 	}
