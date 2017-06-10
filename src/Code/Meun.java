@@ -7,7 +7,7 @@ import java.util.Scanner;
 import Code.Data.*;
 import Code.Modle.*;
 
-public class Meun extends DataSql{
+public class Meun extends DataSql {
 
 	public Scanner input = new Scanner(System.in);
 
@@ -48,6 +48,9 @@ public class Meun extends DataSql{
 	 * 主界面
 	 */
 	void mainMeun() {
+		System.out.println("≧◇≦	猪脚驾到……");
+		System.out.println("撒花……<※	<※	<※	<※	");
+		System.out.println("鼓掌……└(￣ ￣└)(┘￣ ￣)┘");
 		System.out.println("1.开始游戏");
 		System.out.println("2.角色管理");
 		System.out.println("3.管理员登录");
@@ -105,7 +108,7 @@ public class Meun extends DataSql{
 					int index = (int) (Math.random() * 8);
 					OnePiece one = new OnePiece();
 					one.ranDom(addRole);
-					 nowId.setRole(addRole);
+					nowId.setRole(addRole);
 					chen = true;
 				} else {
 					roleMnue();
@@ -139,9 +142,24 @@ public class Meun extends DataSql{
 	 * 老玩家登陆
 	 */
 	void login() {
-		System.out.println("开发中..");
-		System.out.println();
-		hasRole();
+		int count=1;
+		System.out.println("你的代号是什么？");
+		String idNum = input.next();
+		for (int i = 0; i < id.size(); i++) {
+			if (idNum.equals(id.get(i).getId())) {
+				mainMeun();
+				break;
+			} else {
+				System.out.println("我不知道你是谁！\n滚回主界面去\n");
+				System.out.println("(*+﹏+*)~@	");
+				System.out.println("(*+﹏+*)~@	");
+				System.out.println("(*+﹏+*)~@	");
+				System.out.println("");
+				hasRole();
+			}
+		}
+		
+		
 	}
 
 	/*
@@ -203,8 +221,35 @@ public class Meun extends DataSql{
 	 * 开始游戏
 	 */
 	void play() {
-		System.out.println("开发中..");
-		System.out.println();
+		int blood = 100;
+		int blood1 = 100;
+		for (int i = 1; i > 0; i++) {
+			if (i % 2 == 0) {
+				System.out.println("路飞对一户使用了橡胶机关枪：一户" + blood);
+				blood = blood - (int) (10 + Math.random() * 25);
+				if (blood <= 0) {
+					System.out.println("一户阵亡");
+					break;
+				}
+			} else if (i % 2 != 0) {
+				System.out.println("一户对路飞使用了破道·闪雷：造成了" + blood1 + "点伤害");
+				blood1 = blood1 - (int) (10 + Math.random() * 25);
+				if (blood1 <= 0) {
+					System.out.println("猪脚阵亡");
+					System.out.println("╮(￣▽ ￣)╭	猪脚为什么这么菜？");
+					System.out.println("我也不知道呀…… (*+﹏+*)~@	");
+					System.out.println("*\\(^_^)//*	说好的猪脚光环呢？");
+					System.out.println("光环没感觉到，光腚到时看见了 b（￣▽￣）d	");
+					break;
+				}
+			}
+		}
+		System.out.println("是否继续战斗（Y/N）");
+		String choose=input.nextLine();
+		if("y".equals(choose)||"Y".equals(choose)){
+			play();
+		}else{
 		mainMeun();
+		}
 	}
 }
