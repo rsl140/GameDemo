@@ -67,8 +67,10 @@ public class Meun extends DataSql {
 			System.out.println("开发中..");
 			mainMeun();
 			break;
+		case 0:
+			System.exit(0);
+			break;
 		default:
-			System.out.println("请选择（1/2）：");
 			mainMeun();
 		}
 	}
@@ -221,35 +223,7 @@ public class Meun extends DataSql {
 	 * 开始游戏
 	 */
 	void play() {
-		int blood = 100;
-		int blood1 = 100;
-		for (int i = 1; i > 0; i++) {
-			if (i % 2 == 0) {
-				System.out.println("路飞对一户使用了橡胶机关枪：一户" + blood);
-				blood = blood - (int) (10 + Math.random() * 25);
-				if (blood <= 0) {
-					System.out.println("一户阵亡");
-					break;
-				}
-			} else if (i % 2 != 0) {
-				System.out.println("一户对路飞使用了破道·闪雷：造成了" + blood1 + "点伤害");
-				blood1 = blood1 - (int) (10 + Math.random() * 25);
-				if (blood1 <= 0) {
-					System.out.println("猪脚阵亡");
-					System.out.println("╮(￣▽ ￣)╭	猪脚为什么这么菜？");
-					System.out.println("我也不知道呀…… (*+﹏+*)~@	");
-					System.out.println("*\\(^_^)//*	说好的猪脚光环呢？");
-					System.out.println("光环没感觉到，光腚到时看见了 b（￣▽￣）d	");
-					break;
-				}
-			}
-		}
-		System.out.println("是否继续战斗（Y/N）");
-		String choose=input.nextLine();
-		if("y".equals(choose)||"Y".equals(choose)){
-			play();
-		}else{
-		mainMeun();
-		}
+		GameAngin ga=new GameAngin();
+		ga.play();
 	}
 }
