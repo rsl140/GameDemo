@@ -1,6 +1,6 @@
 package Code.Modle;
 /**
- * @技能伤害值
+ * @鎶�鑳戒激瀹冲��
  */
 public class SkillBlood {
 

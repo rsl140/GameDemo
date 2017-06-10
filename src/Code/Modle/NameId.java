@@ -7,9 +7,9 @@ import java.util.List;
  */
 public class NameId {
 
-	String id;// ç”¨æˆ·å
-	String camp;//é˜µè¥
-	List<OnePiecePerson> role;// åŒ…å«è§’è‰²
+	String id;// ÓÃ»§Ãû
+	String camp;//ÕóÓª
+	List<OnePiecePerson> role;// °üº¬½ÇÉ«
 
 	public NameId() {
 

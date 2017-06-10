@@ -8,23 +8,23 @@ import java.util.Scanner;
  */
 public class OnePiecePerson {
 
-	String name;// å§“å
-	int blood = 100;// è¡€é‡
-	String sex;// æ€§åˆ«
-	String camp;// é˜µè¥
-	String job;// èŒèƒ½
-	String skill;// æŠ€èƒ½
+	String name;// ĞÕÃû
+	int blood = 100;// ÑªÁ¿
+	String sex;// ĞÔ±ğ
+	String camp;// ÕóÓª
+	String job;// Ö°ÄÜ
+	String skill;// ¼¼ÄÜ
 
 	public Scanner input = new Scanner(System.in);
 
 	/*
-	 * æ„é€ æ–¹æ³•
+	 * ¹¹Ôì·½·¨
 	 */
-	OnePiecePerson() {
+	public OnePiecePerson() {
 	}
 
 	/*
-	 * æ„é€ å‡½æ•°
+	 * ¹¹Ôìº¯Êı
 	 */
 	public OnePiecePerson(String name, int blood, String sex, String camp, String job, String skill) {
 		super();
