@@ -30,7 +30,9 @@ public class DataSql {
 	 * 初始化现有阵营
 	 * */
 	protected List<Camp> campData = new ArrayList<Camp>();
-	
+	/**
+	 * 赋值初始化阵营
+	 */
 	protected void campDataInIt(){
 		campData.add(new Camp("海贼"));
 		campData.add(new Camp("死神"));

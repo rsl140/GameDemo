@@ -19,7 +19,7 @@ public class Meun extends DataSql {
 		this.campDataInIt();
 	}
 
-	/*
+	/**
 	 * 登录界面
 	 */
 	public void hasRole() {
@@ -44,7 +44,7 @@ public class Meun extends DataSql {
 		}
 	}
 
-	/*
+	/**
 	 * 主界面
 	 */
 	void mainMeun() {
@@ -64,8 +64,7 @@ public class Meun extends DataSql {
 			roleMnue();
 			break;
 		case 3:
-			System.out.println("开发中..");
-			mainMeun();
+			admin();
 			break;
 		case 0:
 			System.exit(0);
@@ -131,7 +130,7 @@ public class Meun extends DataSql {
 		}
 	}
 
-	/*
+	/**
 	 * 判断用户是否拥有角色
 	 */
 	void hasHave() {
@@ -164,8 +163,8 @@ public class Meun extends DataSql {
 		
 	}
 
-	/*
-	 * 注册
+	/**
+	 * 新玩家注册
 	 */
 	void AddNew() {
 		System.out.println("告诉我你叫什么？");
@@ -182,7 +181,7 @@ public class Meun extends DataSql {
 		mainMeun();
 	}
 
-	/*
+	/**
 	 * 注册成功选择阵营并初始化角色
 	 */
 	void AddNewRoleInit(String name) {
@@ -225,5 +224,37 @@ public class Meun extends DataSql {
 	void play() {
 		GameAngin ga=new GameAngin();
 		ga.play();
+	}
+	
+	/**
+	 * 管理员登录
+	 */
+	void admin(){
+		System.out.println("哪位？");
+		String adminName=input.next();
+		System.out.println("道上的朋友？");
+		String codeKey=input.next();
+		if("admin".equals(adminName)&&"天王盖地虎".equals(codeKey)){
+			System.out.println("宝塔镇河妖");
+			System.out.println("失敬！失敬！");
+			System.out.println("你想做点什么呢？");
+			System.out.println("\t1.找点东西\n\t2.放点东西\n\t3.换点东西\n\t4.丢点东西\n\t0.家徒四壁");
+			int choose=input.nextInt();
+			switch(choose){
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 0:
+				break;
+			default:
+				break;
+			}
+		}
+		
 	}
 }
