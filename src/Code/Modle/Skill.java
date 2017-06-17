@@ -1,6 +1,6 @@
 package Code.Modle;
 /**
- * @浜虹墿鎶�鑳�
+ * @技能
  */
 import java.util.List;
 

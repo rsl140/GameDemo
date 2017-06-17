@@ -1,33 +1,35 @@
 package Code.Modle;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Scanner;
 
 /**
- * @鍏ㄥ眬鍙橀噺
+ * @角色信息
  */
-public class OnePiecePerson {
+public class RolePereson implements Serializable{
 
+	String lever;//卡牌等级
 	String name;// 姓名
-	int blood = 100;// 血量
+	int blood;// 血量
 	String sex;// 性别
 	String camp;// 阵营
 	String job;// 职能
 	String skill;// 技能
 
-	public Scanner input = new Scanner(System.in);
 
 	/*
 	 * 构造方法
 	 */
-	public OnePiecePerson() {
+	public RolePereson() {
 	}
 
 	/*
 	 * 构造函数
 	 */
-	public OnePiecePerson(String name, int blood, String sex, String camp, String job, String skill) {
+	public RolePereson(String lever,String name, int blood, String sex, String camp, String job, String skill) {
 		super();
+		this.lever = lever;
 		this.name = name;
 		this.blood = blood;
 		this.sex = sex;
@@ -84,12 +86,12 @@ public class OnePiecePerson {
 		this.skill = skill;
 	}
 
-	public Scanner getInput() {
-		return input;
+	public String getLever() {
+		return lever;
 	}
 
-	public void setInput(Scanner input) {
-		this.input = input;
+	public void setLever(String lever) {
+		this.lever = lever;
 	}
-
+	
 }
