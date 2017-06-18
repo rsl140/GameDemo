@@ -1,13 +1,14 @@
 package Code.Modle;
 
-import java.util.List;
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
  * @鍏ㄥ眬鍙橀噺
  */
-public class OnePiecePerson {
+public class OnePiecePerson implements Serializable{
 
+	String lever;
 	String name;// 姓名
 	int blood = 100;// 血量
 	String sex;// 性别
@@ -15,7 +16,6 @@ public class OnePiecePerson {
 	String job;// 职能
 	String skill;// 技能
 
-	public Scanner input = new Scanner(System.in);
 
 	/*
 	 * 构造方法
@@ -26,14 +26,23 @@ public class OnePiecePerson {
 	/*
 	 * 构造函数
 	 */
-	public OnePiecePerson(String name, int blood, String sex, String camp, String job, String skill) {
+	public OnePiecePerson(String lever,String name, int blood, String sex, String camp, String job, String skill) {
 		super();
+		this.lever=lever;
 		this.name = name;
 		this.blood = blood;
 		this.sex = sex;
 		this.camp = camp;
 		this.job = job;
 		this.skill = skill;
+	}
+
+	public String getLever() {
+		return lever;
+	}
+
+	public void setLever(String lever) {
+		this.lever = lever;
 	}
 
 	public String getName() {
@@ -84,12 +93,5 @@ public class OnePiecePerson {
 		this.skill = skill;
 	}
 
-	public Scanner getInput() {
-		return input;
-	}
-
-	public void setInput(Scanner input) {
-		this.input = input;
-	}
 
 }

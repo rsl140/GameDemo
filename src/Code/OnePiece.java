@@ -20,8 +20,8 @@ public class OnePiece extends OnePiecePerson {
 	public OnePiece() {
 	}
 
-	public OnePiece(String name, int blood, String sex, String camp, String job, String skill) {
-		super(name, blood, sex, camp, job, skill);
+	public OnePiece(String lever,String name, int blood, String sex, String camp, String job, String skill) {
+		super(lever,name, blood, sex, camp, job, skill);
 	}
 
 	/*
@@ -31,15 +31,15 @@ public class OnePiece extends OnePiecePerson {
 		/*
 		 * 给予数组初始
 		 */
-		caoMao.add(new OnePiecePerson("蒙奇·D·路飞", 100, "男", "草帽海贼团", "船长", "橡胶果实"));
-		caoMao.add(new OnePiecePerson("罗罗诺亚·索隆", 100, "男", "草帽海贼团", "船员", "三刀流剑士	"));
-		caoMao.add(new OnePiecePerson("娜美", 100, "女", "草帽海贼团", "航海士", "天候棒"));
-		caoMao.add(new OnePiecePerson("山治", 100, "男", "草帽海贼团", "船厨", "赤足"));
-		caoMao.add(new OnePiecePerson("乌索普", 100, "男", "草帽海贼团", "狙击手", "弹弓"));
-		caoMao.add(new OnePiecePerson("托尼托尼·乔巴", 100, "驯鹿", "草帽海贼团", "船医", "人人果实"));
-		caoMao.add(new OnePiecePerson("妮可·罗宾", 100, "女", "草帽海贼团", "历史学家", "果实"));
-		caoMao.add(new OnePiecePerson("弗兰奇", 100, "男", "草帽海贼团", "船匠", "人造人"));
-		caoMao.add(new OnePiecePerson("布鲁克", 100, "骷髅", "草帽海贼团", "音乐家", "黄泉果实"));
+		caoMao.add(new OnePiecePerson("SSS级","蒙奇·D·路飞", 100, "男", "草帽海贼团", "船长", "橡胶果实"));
+		caoMao.add(new OnePiecePerson("SSS级","罗罗诺亚·索隆", 100, "男", "草帽海贼团", "船员", "三刀流剑士	"));
+		caoMao.add(new OnePiecePerson("SS级","娜美", 100, "女", "草帽海贼团", "航海士", "天候棒"));
+		caoMao.add(new OnePiecePerson("SS级","山治", 100, "男", "草帽海贼团", "船厨", "赤足"));
+		caoMao.add(new OnePiecePerson("S级","乌索普", 100, "男", "草帽海贼团", "狙击手", "弹弓"));
+		caoMao.add(new OnePiecePerson("S级","托尼托尼·乔巴", 100, "驯鹿", "草帽海贼团", "船医", "人人果实"));
+		caoMao.add(new OnePiecePerson("SS级","妮可·罗宾", 100, "女", "草帽海贼团", "历史学家", "果实"));
+		caoMao.add(new OnePiecePerson("S级","弗兰奇", 100, "男", "草帽海贼团", "船匠", "人造人"));
+		caoMao.add(new OnePiecePerson("S级","布鲁克", 100, "骷髅", "草帽海贼团", "音乐家", "黄泉果实"));
 		/*
 		 * 菜单循环
 		 */
@@ -87,6 +87,8 @@ public class OnePiece extends OnePiecePerson {
 	 */
 	void addcaoMao() {
 		System.out.println("请输入添加成员：");
+		System.out.println("等级：");
+		String lever=input.next();
 		System.out.println("阵营：");
 		String camp = input.next();
 		System.out.println("职责：");
@@ -97,7 +99,7 @@ public class OnePiece extends OnePiecePerson {
 		String sex = input.next();
 		System.out.println("能力：");
 		String skill = input.next();
-		OnePiecePerson a = new OnePiecePerson(name, 100, sex, camp, job, skill);
+		OnePiecePerson a = new OnePiecePerson(lever,name, 100, sex, camp, job, skill);
 		caoMao.add(a);
 	}
 
