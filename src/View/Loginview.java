@@ -24,13 +24,11 @@ public class Loginview extends JFrame{
 	public Loginview(){
 		super("动漫大乱斗");
 	    
-	    layeredPane=new JLayeredPane();  
-	    //图片路径
-        image=new ImageIcon(this.getClass().getResource("/img/login.png").getFile());        
+	    layeredPane=new JLayeredPane();
+	    bgjp=new JPanel();
+	    
         //创建背景
-        bgjp=new JPanel();
-	    bgjp = new AddBackgroundImage().addBgImg(bgjp,image, 0, -3);
-        
+	    new AddBackgroundImage().addBackgroundImg(this, layeredPane, bgjp, image, "login.png", 0, -3);
         //显示层
         showjp = new JPanel();
         showjp.setBounds(145,334,549,136); 
@@ -52,7 +50,7 @@ public class Loginview extends JFrame{
         
         //登陆按钮
         JButton submit = new JButton();
-        sytle.setButtonOpaque(submit, 494, 3, 50, 58, new Font("宋体", Font.PLAIN, 20));
+        sytle.setButtonOpaque(submit, 494, 80, 53, 60, new Font("宋体", Font.PLAIN, 20));
         
         //注册提示
         JLabel reguster = new JLabel("New user?");
@@ -76,23 +74,9 @@ public class Loginview extends JFrame{
         showjp.add(reguster);
         showjp.add(regusterClick);
         
-        //将bgjp放到最底层。
-        layeredPane.add(bgjp,JLayeredPane.DEFAULT_LAYER);
         //显示的东西放在上一层
         layeredPane.add(showjp,JLayeredPane.MODAL_LAYER);
-        
-        
-        
-        
         this.setLayeredPane(layeredPane);
-        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(image.getIconWidth(),image.getIconHeight());
-        this.setUndecorated(true);//删除title
-        this.setResizable(false);//不能放大
-        
-        //居中
-        SetFrameCenter center = new SetFrameCenter();
-        center.Center(this, image.getIconWidth(), image.getIconHeight());
         //事件
   		LoginListener listener = new LoginListener(username,password,submit,this,regusterClick);
   		username.addActionListener(listener);

@@ -1,8 +1,10 @@
 package Code;
 
+import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -38,5 +40,14 @@ public class SetStyle {
 		Jbutton.setOpaque(false);
 		Jbutton.setBorder(null);
 		Jbutton.setFont(font);
+	}
+	
+	/**
+	 * 为Jlable设置字体样式以及在JPanel中的定位
+	 */
+	public void setJlableFontStyleAndColor(JLabel lable,Font font,Color color,int x,int y,int width,int height){
+		lable.setFont(font);
+		lable.setForeground(color);
+		lable.setBounds(x, y, width, height);
 	}
 }

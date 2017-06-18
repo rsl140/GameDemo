@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Code.SetData;
-import Code.Modle.Camp;
 import Code.Modle.NameId;
 import Code.Modle.RolePereson;
 

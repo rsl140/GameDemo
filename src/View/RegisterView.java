@@ -1,162 +1,114 @@
 package View;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import Code.SetData;
-import Code.Modle.Camp;
-import Code.Modle.NameId;
-import Code.Modle.RolePereson;
+import Code.AddBackgroundImage;
+import Code.SetFrameCenter;
+import Code.SetStyle;
+import Code.Listener.RegisterListener;
 
 public class RegisterView extends JFrame{
-	static final int WIDTH=280;
-    static final int HEIGHT=230;
-    
-    public RegisterView() {
 
-		//JFrame frames = new JFrame("注册大乱斗");//新建一个顶层容器
-    	setTitle("注册大乱斗");
-		setSize(WIDTH, HEIGHT);//设置容器的宽度和高度
-		setResizable(false);
-		JPanel panel = new JPanel();
+	//创建一个JLayeredPane用于分层的。  
+    JLayeredPane layeredPane;  
+    //创建一个Panel和一个Label用于存放图片，作为背景。  
+    JPanel bgjp; 
+    ImageIcon image;
+    JPanel showjp;//用于显示内容的panel
+    
+	public RegisterView(){
+		super("动漫大乱斗");
+
+	    layeredPane=new JLayeredPane();
+	    bgjp=new JPanel();
+	    
+        //创建背景
+	    new AddBackgroundImage().addBackgroundImg(this, layeredPane, bgjp, image, "login.png", 0, -3);
+        
+        //显示层
+        showjp = new JPanel();
+        showjp.setBounds(145,334,549,192);
+        showjp.setOpaque(false);//设置为透明
+        showjp.setLayout(null);//取消默认样式
+        
+        //文本框透明
+        JTextField username = new JTextField("输入用户名");
+        JPasswordField password = new JPasswordField("输入密码");
+        JTextField getFocus = new JTextField();//加载时默认获得焦点用
+        getFocus.setBounds(800, 10, 0, 0);
+        
+        //明文显示密码内容
+        password.setEchoChar('\0');
+        
+        SetStyle sytle = new SetStyle();
+        sytle.setTextOpaque(username, 15, 86, 220, 45, new Font("宋体", Font.PLAIN, 20));
+        sytle.setPwdTextOpaque(password, 260, 86, 220, 45, new Font("宋体", Font.PLAIN, 20));
+        
+        //登陆按钮
+        JButton submit = new JButton();
+        sytle.setButtonOpaque(submit, 494, 80, 53, 60, new Font("宋体", Font.PLAIN, 20));
+        
+        //注册提示
+        JLabel reguster = new JLabel("Old user?");
+        //增加下划线
+        JLabel regusterClick = new JLabel("<HTML><U>Login here!</U></HTML>");
+        //设置字体样式
+        reguster.setFont(new Font("Serif", Font.PLAIN, 18));
+        regusterClick.setFont(new Font("Serif", Font.BOLD, 18));
+        //设置下划线并设置字体颜色
+        regusterClick.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        regusterClick.setForeground(Color.WHITE);
+        //定位
+        reguster.setBounds(140, 0, 80, 30);
+        regusterClick.setBounds(223, 0, 120, 30);
+        
+      //阵营选择
+  		JComboBox camp = new JComboBox();
+  		camp.addItem("无私");
+  		camp.addItem("无畏");
+  		camp.addItem("诚实");
+  		camp.addItem("友好");
+  		camp.addItem("博学");
+  		camp.setBounds(185, 139, 100, 40);
+        
+        
+        showjp.add(username);
+        showjp.add(password);
+        showjp.add(submit);
+        showjp.add(getFocus);
+        showjp.add(reguster);
+        showjp.add(regusterClick);
+        showjp.add(camp);
+        
+        //显示的东西放在上一层
+        layeredPane.add(showjp,JLayeredPane.MODAL_LAYER);
+        
+        this.setLayeredPane(layeredPane);
+        //事件
+        RegisterListener listener = new RegisterListener(username,password,submit,this,regusterClick,camp);
+  		username.addActionListener(listener);
+  		password.addActionListener(listener);
+  		submit.addActionListener(listener);
+  		listener.setTextReminder();
+  		listener.setPwdReminder();
+  		listener.goToRegusterFram();
+
+  		setVisible(true);
+		getFocus.requestFocusInWindow();//页面加载后获得焦点
 		
-		add(panel);
-		panel.setLayout(null);
-		panel.setBounds(0, 0, WIDTH, HEIGHT);
-		JLabel NameId = new JLabel("用户名：");
-		JLabel pwd = new JLabel("密   码：");
-		JLabel secondpwd = new JLabel("确认密码：");
-		JLabel campLable = new JLabel("选择阵营：");
-		//创建提示语
-		JLabel vrNameId = new JLabel();
-		JLabel vrpwd = new JLabel();
-		JLabel vrsecondpwd = new JLabel();
-		//阵营选择
-		JComboBox camp = new JComboBox();
-		camp.addItem("无私");
-		camp.addItem("无畏");
-		camp.addItem("诚实");
-		camp.addItem("友好");
-		camp.addItem("博学");
-		
-		JTextField idName = new JTextField();
-		JPasswordField idPassword = new JPasswordField();
-		JPasswordField idPassword2 = new JPasswordField();
-		
-		JButton zhuce = new JButton("注册");
-		//设置页面显示位置
-		Toolkit kit=Toolkit.getDefaultToolkit();
-		Dimension screenSize=kit.getScreenSize();
-		int width=screenSize.width;
-        int height=screenSize.height;
-        int x=(width-WIDTH)/2;
-        int y=(height-HEIGHT)/2;
-        setLocation(x,y);
-        //设置内容在panel里的坐标
-		NameId.setBounds(25, 20, 80, 30);
-		pwd.setBounds(25, 50, 80, 30);
-		secondpwd.setBounds(25, 80, 80, 30);
-		campLable.setBounds(25, 110, 80, 30);
-		//提示语
-		vrNameId.setBounds(200, 20, 80, 30);
-		vrpwd.setBounds(200, 50, 80, 30);
-		vrsecondpwd.setBounds(200, 80, 80, 30);
-		//输入框
-		idName.setBounds(80, 20, 120, 30);
-		idPassword.setBounds(80, 50, 120, 30);
-		idPassword2.setBounds(80, 80, 120, 30);
-		//按钮
-		zhuce.setBounds(100, 160, 80, 20);
-		//选择阵营
-		camp.setBounds(80, 115, 120, 20);
-		
-		//添加到panel中
-		panel.add(NameId);
-		panel.add(idName);
-		panel.add(secondpwd);
-		panel.add(vrNameId);
-		panel.add(vrpwd);
-		panel.add(pwd);
-		panel.add(vrsecondpwd);
-		panel.add(idPassword);
-		panel.add(idPassword2);
-		panel.add(zhuce);
-		panel.add(campLable);
-		panel.add(camp);
 		
 		
-		
-		panel.setVisible(true);
-		setVisible(true);
-		
-		//逻辑代码块
-		zhuce.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//重置提示语
-				vrNameId.setText("");
-				vrpwd.setText("");
-				vrsecondpwd.setText("");
-				//读取数据库内容
-				SetData data = new SetData();
-				List<NameId> userInfo = new ArrayList<NameId>();
-				userInfo = data.getUserInfo();
-				boolean isHave = false;
-				//判断是否为空
-				if(idName.getText().trim().length() == 0){
-					vrNameId.setText("不能为空！");
-				}else{
-					//查找是否有此人
-					for (int i = 0; i < userInfo.size(); i++) {
-						if(userInfo.get(i).getId().equals(idName.getText())){
-							vrNameId.setText("已存在！");
-							isHave = true;
-							break;
-						}
-					}
-					
-					if(!isHave){
-						vrNameId.setText("");
-						String pwd1 = new String(idPassword.getPassword());
-						String pwd2 = new String(idPassword2.getPassword());
-						if(pwd1.length() == 0){
-							vrsecondpwd.setText("不能为空！");
-						}else if(!pwd1.equals(pwd2)){
-							vrsecondpwd.setText("密码不一致！");
-						}else{
-							//新增一个用户信息
-							NameId addName = new NameId();
-							addName.setId(idName.getText());
-							addName.setPwd(pwd1);
-							addName.setCamp(camp.getSelectedItem().toString());
-							List<RolePereson> role = new ArrayList<RolePereson>();
-							role.add(new RolePereson("A级","小明",100,"平民","新手村","普通","乱拳"));
-							addName.setRole(role);
-							MainView mainLogin = new MainView(addName);
-							//新增当前登陆用户并写入数据库
-							userInfo.add(addName);
-							data.setUserInfo(userInfo);
-							//mainLogin.loginUserInfo = addName;
-							setVisible(false);
-						}
-					}
-				}
-				
-			}
-		});
-	
 	}
 }
