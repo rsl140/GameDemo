@@ -16,6 +16,7 @@ public class RolePereson implements Serializable{
 	String camp;// 阵营
 	String job;// 职能
 	String skill;// 技能
+	String src;
 
 
 	/*
@@ -36,6 +37,7 @@ public class RolePereson implements Serializable{
 		this.camp = camp;
 		this.job = job;
 		this.skill = skill;
+		this.src = "rolebg";
 	}
 
 	public String getName() {
@@ -92,6 +94,14 @@ public class RolePereson implements Serializable{
 
 	public void setLever(String lever) {
 		this.lever = lever;
+	}
+
+	public String getSrc() {
+		return src;
+	}
+
+	public void setSrc(String src) {
+		this.src = src;
 	}
 	
 }

@@ -1,7 +1,10 @@
 package Code;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -49,5 +52,30 @@ public class SetStyle {
 		lable.setFont(font);
 		lable.setForeground(color);
 		lable.setBounds(x, y, width, height);
+	}
+	
+	/**
+	 * 鼠标移入增加下划线
+	 * @param jlabel
+	 * @param str 文本
+	 */
+	public void MouseInAndOut(JLabel jlabel,String str){
+		jlabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				super.mouseEntered(e);
+				jlabel.setText("<HTML><U>"+ str +"</U></HTML>");
+				//手指样式
+				jlabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				super.mouseExited(e);
+				jlabel.setText(str);
+			}
+		});
 	}
 }

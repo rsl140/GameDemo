@@ -24,11 +24,12 @@ public class MainView extends JFrame{
     JPanel showjp;//用于显示内容的panel
 	
 	public MainView(NameId loginUserInfo){
+		this.loginUserInfo = loginUserInfo;
 		layeredPane=new JLayeredPane();
 		bgjp = new JPanel();
 		//设置背景
 		new AddBackgroundImage().addBackgroundImg(this, layeredPane, bgjp, image, "main.jpg", 0, -3);
-        //
+        //绘图
 		showjp = new JPanel();
 		showjp.setBounds(290, 350, 237, 233);
 		showjp.setOpaque(false);
@@ -51,6 +52,12 @@ public class MainView extends JFrame{
 		style.setJlableFontStyleAndColor(drawACard, lableFont, white, 30, 120, 150, 30);
 		style.setJlableFontStyleAndColor(quiteGame, lableFont, white, 30, 160, 150, 30);
 		
+		//鼠标下划线
+		style.MouseInAndOut(starGame,"1.开始游戏");
+		style.MouseInAndOut(lookRole,"2.管理卡牌");
+		style.MouseInAndOut(drawACard,"3.开始抽牌");
+		style.MouseInAndOut(quiteGame,"4.退出游戏");
+		
 		showjp.add(hasRole);
 		showjp.add(starGame);
 		showjp.add(lookRole);
@@ -60,11 +67,8 @@ public class MainView extends JFrame{
 		layeredPane.add(showjp,JLayeredPane.MODAL_LAYER);
 		
 		//事件
-		MainViewListener listener = new MainViewListener(starGame,lookRole,drawACard,quiteGame);
-		listener.MouseInAndOut(starGame,"1.开始游戏");
-		listener.MouseInAndOut(lookRole,"2.管理卡牌");
-		listener.MouseInAndOut(drawACard,"3.开始抽牌");
-		listener.MouseInAndOut(quiteGame,"4.退出游戏");
+		MainViewListener listener = new MainViewListener(starGame,lookRole,drawACard,quiteGame,loginUserInfo);
+		listener.cilickListener();
 		
 		this.setLayeredPane(layeredPane);
         setVisible(true);
