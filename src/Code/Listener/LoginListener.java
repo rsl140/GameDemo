@@ -65,7 +65,6 @@ public class LoginListener implements ActionListener{
 					jpwd.setEchoChar('\0');
 					jpwd.setText("ÊäÈëÃÜÂë");
 				}
-				
 			}
 			
 			@Override

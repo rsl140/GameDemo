@@ -21,15 +21,16 @@ public class ManageCardListener {
 	private JFrame frame;
 	
 	public ManageCardListener(JFrame frame,JLabel goback,NameId loginUserInfo){
+		this.frame = frame;
 		this.goback = goback;
 		this.loginUserInfo = loginUserInfo;
-		this.frame = frame;
 	}
 	
 	public void cilickListener(){
 		goback.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				//System.out.println(loginUserInfo);
 				frame.setVisible(false);
 				MainView main =new MainView(loginUserInfo);
 				main.loginUserInfo = loginUserInfo;

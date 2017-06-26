@@ -67,7 +67,7 @@ public class MainView extends JFrame{
 		layeredPane.add(showjp,JLayeredPane.MODAL_LAYER);
 		
 		//ÊÂ¼þ
-		MainViewListener listener = new MainViewListener(starGame,lookRole,drawACard,quiteGame,loginUserInfo);
+		MainViewListener listener = new MainViewListener(this,starGame,lookRole,drawACard,quiteGame,loginUserInfo);
 		listener.cilickListener();
 		
 		this.setLayeredPane(layeredPane);
